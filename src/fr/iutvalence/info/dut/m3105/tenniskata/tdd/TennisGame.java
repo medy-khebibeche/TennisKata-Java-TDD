@@ -2,50 +2,46 @@ package fr.iutvalence.info.dut.m3105.tenniskata.tdd;
 public class TennisGame
 {
 	
-	public static final String FIFTEEN_LOVE = "fifteen-love";
-	public static final String LOVE_ALL = "love-all";
-	public static final String LOVE_FIFTEEN = "love-fifteen";
-	public static final String FIFTEEN_ALL = "fifteen-all";
-	
+	public static final String[] allScore = {"love","fifteen","thirty","all"};
+
 	private String score;
+	private int nbTimesServerScored;
+	
+
+
+	private int nbTimesReceiverScored;
 	
 	public TennisGame()
 	{
-		this.score = LOVE_ALL;
+		//this.score = LOVE_ALL;
+		this.nbTimesReceiverScored = 0;
+		this.nbTimesServerScored = 0;	
 	}
 
 	public void serverScoredOnePoint()
 	{
-		if (this.score == LOVE_FIFTEEN)
-		{
-			this.setScore(FIFTEEN_ALL);
-		}else
-		{
-			this.setScore(FIFTEEN_LOVE);
-		}
-	
+		this.nbTimesServerScored++;
 	}
 	
 	public void receiverScoredOnePoint()
 	{
-		if (this.score == FIFTEEN_LOVE)
-		{
-			this.setScore(FIFTEEN_ALL);
-		}else
-		{
-			this.setScore(LOVE_FIFTEEN);
-		}
-		
+		this.nbTimesReceiverScored++;
 	}
 	
 	public String getScore() 
 	{
-		return this.score;
+		String score ="";
+		score = allScore[this.nbTimesServerScored]+"-"+allScore[this.nbTimesReceiverScored];
+		return score;
 	}
 	
-	public void setScore(String score) 
-	{
-		this.score = score;
+	public int getNbTimesServerScored() {
+		return this.nbTimesServerScored;
 	}
+	
+	public int getNbTimesReceiverScored() {
+		return this.nbTimesReceiverScored;
+	}
+
 
 }

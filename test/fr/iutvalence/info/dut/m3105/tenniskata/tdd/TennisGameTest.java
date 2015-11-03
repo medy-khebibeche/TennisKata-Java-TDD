@@ -12,7 +12,7 @@ public class TennisGameTest
 	public void startOfTheGameTest()
 	{
 		TennisGame testGame = new TennisGame();
-		assertEquals(testGame.getScore(),testGame.LOVE_ALL);
+		assertEquals(testGame.getScore(),"love-all");
 	}
 	
 	@Test
@@ -20,7 +20,7 @@ public class TennisGameTest
 	{
 		TennisGame testGame = new TennisGame();
 		testGame.serverScoredOnePoint();
-		assertEquals(testGame.getScore(),testGame.FIFTEEN_LOVE);
+		assertEquals(testGame.getScore(),"fifteen-love");
 	}
 	
 	@Test
@@ -28,24 +28,24 @@ public class TennisGameTest
 	{
 		TennisGame testGame = new TennisGame();
 		testGame.receiverScoredOnePoint();
-		assertEquals(testGame.getScore(),testGame.LOVE_FIFTEEN);
+		assertEquals(testGame.getScore(),"love-fifteen");
 	}
 	
 	@Test
-	public void serverAndReceiverScoredOnePointTest()
+	public void serverAndThenReceiverScoredOnePointTest()
 	{
 		TennisGame testGame = new TennisGame();
 		testGame.serverScoredOnePoint();
 		testGame.receiverScoredOnePoint();
-		assertEquals(testGame.getScore(), testGame.FIFTEEN_ALL);
+		assertEquals(testGame.getScore(), "fifteen-all");
 	}
 	
 	@Test
-	public void receiverAndServerScoredOnePointTest()
+	public void receiverAndThenServerScoredOnePointTest()
 	{
 		TennisGame testGame = new TennisGame();
 		testGame.receiverScoredOnePoint();
 		testGame.serverScoredOnePoint();
-		assertEquals(testGame.getScore(), testGame.FIFTEEN_ALL);
+		assertEquals(testGame.getScore(), "fifteen-all");
 	}
 }
