@@ -2,21 +2,40 @@ package fr.iutvalence.info.dut.m3105.tenniskata.tdd;
 public class TennisGame
 {
 	
+	public static final String FIFTEEN_LOVE = "fifteen-love";
+	public static final String LOVE_ALL = "love-all";
+	public static final String LOVE_FIFTEEN = "love-fifteen";
+	public static final String FIFTEEN_ALL = "fifteen-all";
+	
 	private String score;
 	
 	public TennisGame()
 	{
-		this.score = "love-all";
+		this.score = LOVE_ALL;
 	}
 
 	public void serverScoredOnePoint()
 	{
-		this.setScore("fifteen-love");
+		if (this.score == LOVE_FIFTEEN)
+		{
+			this.setScore(FIFTEEN_ALL);
+		}else
+		{
+			this.setScore(FIFTEEN_LOVE);
+		}
+	
 	}
 	
 	public void receiverScoredOnePoint()
 	{
-		this.setScore("love-fifteen");
+		if (this.score == FIFTEEN_LOVE)
+		{
+			this.setScore(FIFTEEN_ALL);
+		}else
+		{
+			this.setScore(LOVE_FIFTEEN);
+		}
+		
 	}
 	
 	public String getScore() 
