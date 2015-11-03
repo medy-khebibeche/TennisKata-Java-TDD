@@ -15,4 +15,11 @@ public class TennisGameTest
 		assertEquals(testGame.getScore(),"love-all");
 	}
 	
+	@Test
+	public void serverScoreOnePointFirstTest()
+	{
+		TennisGame testGame = new TennisGame();
+		testGame.serverScored();
+		assertEquals(testGame.getScore(),"fifteen-love");
+	}
 }
